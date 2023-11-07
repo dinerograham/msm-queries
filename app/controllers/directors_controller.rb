@@ -12,4 +12,9 @@ class DirectorsController < ApplicationController
     @the_director = @matching_records[0]
     render({:template => "director_templates/details"})
   end
+
+  def young
+    @the_youngest = Director.all.minimum(dob)
+    render({:template => "director_templates/youngest"})
+  end
 end
